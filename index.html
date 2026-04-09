@@ -16,3 +16,578 @@
     </div>
 </body>
 </html>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust AI — Your World, Personalized.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --apple-black: #000000;
+            --apple-gray: #1d1d1f;
+            --apple-blue: #2997ff;
+            --glass-bg: rgba(22, 22, 23, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--apple-black);
+            color: #f5f5f7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 80%, #000000 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #a1a1a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-padding {
+            padding: 120px 24px;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 80px 20px;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #000000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.02);
+        }
+
+        .feature-card {
+            background: #161617;
+            border-radius: 24px;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .ad-card {
+            background: linear-gradient(135deg, rgba(41, 151, 255, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            border: 1px solid rgba(41, 151, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ad-badge {
+            background: var(--apple-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+        }
+
+        .deal-tag {
+            background: #ff3b30;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .best-value-tag {
+            background: #34c759;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .kuse-branding {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #a1a1a6;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .kuse-branding:hover {
+            color: #ffffff;
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+        }
+    </style>
+</head>
+<body class="font-[Poppins]">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] glass border-b border-[rgba(255,255,255,0.05)]">
+        <div class="max-w-7xl mx-auto px-6 h-[64px] flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i data-lucide="compass" class="text-white w-6 h-6"></i>
+                <span class="font-semibold text-xl tracking-tight">Wanderlust AI</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#personalization" class="nav-link">Personalization</a>
+                <a href="#geofence" class="nav-link">Smart Bounds</a>
+                <a href="#deals" class="nav-link">Price Drops</a>
+                <a href="#booking" class="nav-link">Booking</a>
+                <a href="#global" class="nav-link">Global Support</a>
+            </div>
+            <div>
+                <button class="btn-primary px-5 py-2 rounded-full text-sm font-semibold">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.kuse.ai/api/folder/v1/file/e42d8b9522c4ca562853a9bc6f5392ad321cd0bb8ec4e7aa4dc01ab868d22c62_3058073.jpeg" alt="Luxury Travel Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-8xl font-bold tracking-tight mb-6 reveal">
+                Travel, <span class="text-gradient">Redefined.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-[#a1a1a6] mb-10 max-w-2xl mx-auto reveal" style="transition-delay: 200ms;">
+                Your world, expertly curated by AI. Personalized itineraries, seamless bookings, and hidden gems—all in one place.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center reveal" style="transition-delay: 400ms;">
+                <button class="btn-primary px-8 py-4 rounded-full text-lg font-medium">Start Planning</button>
+                <button class="px-8 py-4 rounded-full text-lg font-medium border border-white/20 glass hover:bg-white/10 transition-all">Watch Film</button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="text-white/40"></i>
+        </div>
+    </header>
+
+    <!-- Intelligent Personalization -->
+    <section id="personalization" class="section-padding max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <span class="text-apple-blue font-semibold tracking-wider text-sm uppercase mb-4 block">Inclusive Luxury</span>
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">Every budget. Every dream.</h2>
+                <p class="text-lg text-[#a1a1a6] leading-relaxed mb-10">
+                    Wanderlust AI is now built for everyone. From ultra-low cost backpacking to ultra-luxury retreats, our engine scales with your wallet. You decide the numbers; we provide the magic.
+                </p>
+                <div class="flex flex-wrap gap-4 mb-10">
+                    <div class="px-6 py-3 rounded-2xl glass border-white/10 flex items-center gap-3">
+                        <i data-lucide="wallet" class="text-green-400 w-5 h-5"></i>
+                        <span class="font-medium text-sm">Ultra-Low Cost</span>
+                    </div>
+                    <div class="px-6 py-3 rounded-2xl glass border-white/10 flex items-center gap-3">
+                        <i data-lucide="coins" class="text-yellow-400 w-5 h-5"></i>
+                        <span class="font-medium text-sm">Balanced</span>
+                    </div>
+                    <div class="px-6 py-3 rounded-2xl glass border-white/10 flex items-center gap-3">
+                        <i data-lucide="gem" class="text-blue-400 w-5 h-5"></i>
+                        <span class="font-medium text-sm">Premium</span>
+                    </div>
+                </div>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full glass flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="sparkles" class="text-apple-blue w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Adaptive Itineraries</h4>
+                            <p class="text-[#86868b]">Dynamic schedules that update in real-time based on weather and local events.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full glass flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="users" class="text-apple-blue w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Group Harmony</h4>
+                            <p class="text-[#86868b]">Balancing multiple traveler preferences into one cohesive plan.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="reveal relative" style="transition-delay: 300ms;">
+                <div class="aspect-square rounded-[40px] overflow-hidden glass border border-white/5 relative group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 mix-blend-overlay"></div>
+                    <div class="p-10 flex flex-col h-full justify-center text-center">
+                        <i data-lucide="brain-circuit" class="w-24 h-24 mx-auto mb-8 text-white opacity-80"></i>
+                        <h3 class="text-3xl font-bold mb-4">Neural Travel Engine</h3>
+                        <p class="text-[#a1a1a6]">Processing 10M+ data points to find your soul's destination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Price Drops & Best Value -->
+    <section id="deals" class="section-padding max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <span class="text-apple-blue font-semibold tracking-wider text-sm uppercase mb-4 block">Smart Savings</span>
+            <h2 class="text-4xl md:text-6xl font-bold mb-6">High Quality. Lower Prices.</h2>
+            <p class="text-xl text-[#a1a1a6] max-w-2xl mx-auto">
+                Our AI constantly scans for price drops in real-time, helping you upgrade your trip without spending a cent more.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass p-8 rounded-[32px] reveal">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
+                            <i data-lucide="trending-down" class="text-red-500 w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">Price Drops Alerts</h4>
+                    </div>
+                    <span class="text-xs text-[#86868b]">Last scan: 2m ago</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&amp;fit=crop&amp;q=80&amp;w=200" alt="Hotel" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-semibold text-sm">Grand Alpine Resort</span>
+                                <div class="deal-tag"><i data-lucide="arrow-down" class="w-2.5 h-2.5"></i> 25% OFF</div>
+                            </div>
+                            <p class="text-xs text-[#a1a1a6]">Zermatt, Switzerland</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs text-[#86868b] line-through">$450</div>
+                            <div class="text-lg font-bold text-white">$337</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-[32px] reveal" style="transition-delay: 200ms;">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
+                            <i data-lucide="award" class="text-green-500 w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">Best Value Optimizer</h4>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 flex items-center gap-4 border-green-500/20">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&amp;fit=crop&amp;q=80&amp;w=200" alt="Restaurant" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-semibold text-sm">La Terrazza Secret</span>
+                                <div class="best-value-tag"><i data-lucide="star" class="w-2.5 h-2.5"></i> BEST VALUE</div>
+                            </div>
+                            <p class="text-xs text-[#a1a1a6]">Michelin Star Quality at $40</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm font-semibold text-green-400">Top Rated</div>
+                            <div class="text-xs text-[#86868b]">Under your budget</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Geofencing Section -->
+    <section id="geofence" class="section-padding bg-[#0a0a0b]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal order-2 md:order-1">
+                <div class="aspect-video rounded-[32px] overflow-hidden glass border border-white/5 relative bg-black">
+                    <!-- Map Placeholder with Boundary UI -->
+                    <div class="absolute inset-0 opacity-40 grayscale" style="background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&amp;fit=crop&amp;q=80&amp;w=1000'); background-size: cover;"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-48 h-48 border-2 border-dashed border-red-500 rounded-full flex items-center justify-center bg-red-500/10 animate-pulse">
+                            <span class="text-red-500 font-bold text-xs uppercase tracking-tighter">Travel Limit</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-6 left-6 right-6 p-4 glass rounded-2xl flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="text-red-500 w-5 h-5"></i>
+                            <span class="text-sm font-medium">Max Radius: 50km</span>
+                        </div>
+                        <i data-lucide="settings-2" class="text-white/60 w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal order-1 md:order-2">
+                <span class="text-apple-blue font-semibold tracking-wider text-sm uppercase mb-4 block">Geofencing</span>
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">Your limits. Our respect.</h2>
+                <p class="text-lg text-[#a1a1a6] leading-relaxed mb-10">
+                    Draw your boundaries. Define exactly how far you want to go on the map, and our AI will strictly never suggest a single stay or activity outside those lines.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl glass flex items-center justify-center text-white">
+                            <i data-lucide="calendar-days"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Flexible Duration</h4>
+                            <p class="text-sm text-[#86868b]">We ask for your days first, then fill them perfectly.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl glass flex items-center justify-center text-white">
+                            <i data-lucide="navigation"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Strict Boundaries</h4>
+                            <p class="text-sm text-[#86868b]">Zero leakage outside your selected travel zone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-World Booking -->
+    <section id="booking" class="section-padding bg-[#1d1d1f]/50">
+        <div class="max-w-7xl mx-auto text-center mb-20">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 reveal">Integration is everything.</h2>
+            <p class="text-xl text-[#a1a1a6] max-w-2xl mx-auto reveal" style="transition-delay: 200ms;">
+                One tap to book. From flights and villas to Michelin-starred tables and exclusive experiences.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="feature-card p-10 reveal" style="transition-delay: 100ms;">
+                <i data-lucide="plane" class="text-white w-10 h-10 mb-6"></i>
+                <h3 class="text-2xl font-semibold mb-4 text-white">Smart Logistics</h3>
+                <p class="text-[#a1a1a6]">We handle the flights, transfers, and rentals. Optimized for the best prices and minimum layovers.</p>
+            </div>
+            <div class="feature-card p-10 reveal" style="transition-delay: 200ms;">
+                <i data-lucide="bed" class="text-white w-10 h-10 mb-6"></i>
+                <h3 class="text-2xl font-semibold mb-4 text-white">Premium Stays</h3>
+                <p class="text-[#a1a1a6]">Direct integration with luxury hospitality providers worldwide for exclusive rates and perks.</p>
+            </div>
+            <div class="feature-card p-10 reveal" style="transition-delay: 300ms;">
+                <i data-lucide="utensils" class="text-white w-10 h-10 mb-6"></i>
+                <h3 class="text-2xl font-semibold mb-4 text-white">Local Tables</h3>
+                <p class="text-[#a1a1a6]">Instant reservations at hard-to-get restaurants and authentic local eateries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Support & Frictionless Experience -->
+    <section id="global" class="section-padding max-w-7xl mx-auto">
+        <!-- Native Ad Placement (Sponsored Recommendation) -->
+        <div class="mb-12 reveal">
+            <div class="ad-card rounded-[32px] p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 glass">
+                <div class="ad-badge">Partner Offer</div>
+                <div class="w-full md:w-1/3 aspect-video rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Luxury Resort" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h4 class="text-apple-blue font-semibold text-sm mb-2">EXCLUSIVE STAY</h4>
+                    <h3 class="text-3xl font-bold mb-4">Aman Resorts: Elevated Serenity</h3>
+                    <p class="text-[#a1a1a6] mb-6">Wanderlust AI users get 15% off and complimentary spa treatments at any Aman destination this season. One-click booking integrated.</p>
+                    <button class="px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-opacity-90 transition-all">Claim Offer</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass rounded-[32px] p-12 flex flex-col justify-between h-[500px] reveal overflow-hidden relative">
+                <div class="z-10">
+                    <h3 class="text-3xl font-bold mb-4">Global. Local.</h3>
+                    <p class="text-lg text-[#a1a1a6] max-w-sm">Support in 100+ languages with 24/7 AI concierge assistance wherever you are.</p>
+                </div>
+                <div class="absolute -right-20 -bottom-20 opacity-20">
+                    <i data-lucide="languages" class="w-80 h-80 text-white"></i>
+                </div>
+            </div>
+
+            <div id="experience" class="bg-[#1d1d1f] rounded-[32px] p-12 flex flex-col justify-between h-[500px] reveal overflow-hidden relative" style="transition-delay: 200ms;">
+                <div class="z-10">
+                    <h3 class="text-3xl font-bold mb-4">Frictionless Experience</h3>
+                    <p class="text-lg text-[#a1a1a6] max-w-sm">No more jumping between 10 apps. One interface. One wallet. Total control.</p>
+                </div>
+                <div class="flex gap-4 items-end z-10">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                        <i data-lucide="smartphone" class="text-white"></i>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                        <i data-lucide="watch" class="text-white"></i>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                        <i data-lucide="laptop" class="text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding text-center">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="text-5xl md:text-7xl font-bold mb-10">The world is waiting.</h2>
+            <p class="text-xl text-[#a1a1a6] mb-12">Download Wanderlust AI today and start your next story.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#" class="btn-primary px-10 py-5 rounded-full flex items-center gap-3 font-semibold group">
+                    <i data-lucide="apple" class="w-6 h-6"></i>
+                    App Store
+                </a>
+                <a href="#" class="px-10 py-5 rounded-full border border-white/20 glass font-semibold hover:bg-white/10 transition-all">
+                    Learn about Premium
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-[rgba(255,255,255,0.05)] pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-20">
+            <div class="col-span-1">
+                <div class="flex items-center gap-2 mb-6">
+                    <i data-lucide="compass" class="text-white w-6 h-6"></i>
+                    <span class="font-semibold text-xl">Wanderlust AI</span>
+                </div>
+                <p class="text-[#86868b] text-sm">Empowering travelers with intelligent personalization and seamless booking since 2024.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-6">Product</h4>
+                <ul class="space-y-4 text-[#86868b] text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Personalization</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Booking</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Global Support</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-6">Company</h4>
+                <ul class="space-y-4 text-[#86868b] text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Journal</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-6">Social</h4>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-[rgba(255,255,255,0.05)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[#86868b] text-xs">© 2024 Wanderlust AI Inc. All rights reserved.</p>
+            <a href="https://kuse.ai" target="_blank" class="kuse-branding">
+                made with
+                <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path></svg>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener(`DOMContentLoaded`, function() {
+            // Initialize Lucide icons
+            if (typeof lucide !== `undefined`) {
+                lucide.createIcons();
+            }
+
+            // Scroll reveal animation
+            const reveals = document.querySelectorAll(`.reveal`);
+            const revealOnScroll = () => {
+                reveals.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    if (rect.top < windowHeight * 0.9) {
+                        el.classList.add(`active`);
+                    }
+                });
+            };
+
+            window.addEventListener(`scroll`, revealOnScroll);
+            revealOnScroll(); // Initial check
+
+            // Smooth scroll for nav links
+            document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
+                anchor.addEventListener(`click`, function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute(`href`));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 64,
+                            behavior: `smooth`
+                        });
+                    }
+                });
+            });
+
+            // Navbar background change on scroll
+            const nav = document.querySelector(`nav`);
+            window.addEventListener(`scroll`, () => {
+                if (window.scrollY > 100) {
+                    nav.style.background = `rgba(0, 0, 0, 0.8)`;
+                } else {
+                    nav.style.background = `rgba(22, 22, 23, 0.7)`;
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+
+</body></html>
